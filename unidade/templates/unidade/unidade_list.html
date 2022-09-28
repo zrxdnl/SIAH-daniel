@@ -27,6 +27,9 @@
                     <td>{{ unidade.estado_unidade }}</td>
                     <td>{{ unidade.cep_unidade }}</td>
                </tr>
+               <td>
+                    <a href="{% url 'unidade.remover' unidade.pk %}">Remover</a>
+               </td>
                {% endfor %}
           </tbody>
      </thead>

@@ -1,0 +1,23 @@
+{%extends 'main/base.html' %} 
+{% block content %}
+<a href="{% url 'setor.novo' %}">Novo</a>
+     <table>
+          <thead>
+               <tr>
+                    <th>Nome do Setor</th>
+                    <th>Código do Setor</th>
+               </tr>
+               <tbody>
+                    {% for setor in object_list %}
+                    <tr>
+                         <td>{{ setor.nome_setor }}</td>
+                         <td>{{ setor.codigo_setor }}</td>
+                    </tr>
+                    <td>
+                         <a href="{% url 'setor.remover' setor.pk %}">Remover</a>
+                    </td>
+                    {% endfor %}
+               </tbody>
+          </thead>
+     </table>
+{% endblock content%}
