@@ -30,7 +30,9 @@ def validate_cep(value):
      if len(value) < 8:
           raise ValidationError('O campo deve conter 8 dígitos')
 
-
+def validate_jaCadastrado(value):
+     if value.filter:
+          pass
 
 '''def validate_data(value): 
      if len(value) != 10: 
@@ -51,6 +53,11 @@ def validate_cnpj(value):
      else: 
           return value
 
+def validate_sigla(value):
+     if len(value) != 2:
+          raise ValidationError('Informe apenas a sigla')
+     else:
+          return value
 '''def validate_cpf(value): 
      if len(value) != 11: 
           raise ValidationError('O campo necessita 11 números') 
