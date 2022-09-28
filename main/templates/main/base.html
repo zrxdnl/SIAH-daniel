@@ -7,11 +7,14 @@
      <title>Listagem de Unidades</title>
 </head>
 <body>
-     <h1></h1>
+     <center>
+     <h1>SIAH</h1>
+     <h2>Sistema Informatizado para Arquivos Hospitalares </h2>
+     </center>
      <ul>
-          <li><a href="{% url 'unidade.index' %}">Acessar Unidade</p></a></li>
-          <li><a href="{% url 'home' %}">Home</p></a></li>
-          <li><a href="{% url 'setor.index' %}">Acessar Setores</p></a></li>
+          <li><a href="{% url 'unidade.index' %}"><h4>Acessar Unidade</h4></a></li>
+          <li><a href="{% url 'home' %}"><h4>Home</h4></a></li>
+          <li><a href="{% url 'setor.index' %}"><h4>Acessar Setores</h4></a></li>
           {% block content %}
           {% endblock content%}
      </ul>
