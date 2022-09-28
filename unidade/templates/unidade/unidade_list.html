@@ -1,0 +1,34 @@
+{%extends 'main/base.html' %} 
+{% block content %}
+<a href="{% url 'unidade.novo' %}">Novo</a>
+<table>
+     <thead>
+          <tr>
+               <th>Nome</th>
+               <th>CNES</th>
+               <th>CNPJ</th>
+               <th>Orgão Emissor</th>
+               <th>Endereço</th>
+               <th>Bairro</th>
+               <th>Número</th>
+               <th>Estado</th>
+               <th>CEP</th>
+          </tr>
+          <tbody>
+               {% for unidade in object_list %}
+               <tr>
+                    <td>{{ unidade.nome_unidade }}</td>
+                    <td>{{ unidade.cnes }}</td>
+                    <td>{{ unidade.cnpj }}</td>
+                    <td>{{ unidade.orgaoEmissor_unidade }}</td>
+                    <td>{{ unidade.endereco_unidade }}</td>
+                    <td>{{ unidade.bairro_unidade }}</td>
+                    <td>{{ unidade.numero_unidade }}</td>
+                    <td>{{ unidade.estado_unidade }}</td>
+                    <td>{{ unidade.cep_unidade }}</td>
+               </tr>
+               {% endfor %}
+          </tbody>
+     </thead>
+</table>
+{% endblock content%}
