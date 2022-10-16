@@ -1,23 +1,53 @@
 {%extends 'main/base.html' %} 
 {% block content %}
-<a href="{% url 'setor.novo' %}">Novo</a>
+<style>
+.column {
+     float: left;
+     width: 50%;
+}
+        
+.row:after {
+     content: "";
+     display: table;
+     clear: both;
+}
+</style>
+     <div class="row">
+          <div class="column">
+               <a href="{% url 'setor.novo' %}">Adicionar Setor</a>
+     </br>
+     </br>
      <table>
           <thead>
                <tr>
                     <th>Nome do Setor</th>
                     <th>Código do Setor</th>
+                    <th>Ações</th>
                </tr>
                <tbody>
                     {% for setor in object_list %}
                     <tr>
                          <td>{{ setor.nome_setor }}</td>
                          <td>{{ setor.codigo_setor }}</td>
+                         <td>
+                              <a href="{% url 'setor.remover' setor.pk %}">Remover</a>
+                         </td>
+                         <td>
+                              <a href="{% url 'setor.editar' setor.pk %}">Editar</a>
+                         </td>
                     </tr>
-                    <td>
-                         <a href="{% url 'setor.remover' setor.pk %}">Remover</a>
-                    </td>
                     {% endfor %}
                </tbody>
           </thead>
      </table>
+          </div>
+          <div class="column">
+               <form method="GET">
+                    {% csrf_token %}
+                    <p>Buscar: </p>
+                    <input class="form-control" type="text" name="nome" required>
+                    <input type="submit" value="Buscar"></input>
+               </form>
+          </div>
+     </div>
 {% endblock content%}

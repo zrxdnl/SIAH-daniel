@@ -11,9 +11,10 @@
      <h1>SIAH</h1>
      <h2>Sistema Informatizado para Arquivos Hospitalares </h2>
      </center>
+     <hr></hr>
      <ul>
-          <li><a href="{% url 'unidade.index' %}"><h4>Acessar Unidade</h4></a></li>
           <li><a href="{% url 'home' %}"><h4>Home</h4></a></li>
+          <li><a href="{% url 'unidade.index' %}"><h4>Acessar Unidade</h4></a></li>
           <li><a href="{% url 'setor.index' %}"><h4>Acessar Setores</h4></a></li>
           {% block content %}
           {% endblock content%}
