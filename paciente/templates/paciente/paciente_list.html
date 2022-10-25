@@ -1,0 +1,87 @@
+{%extends 'main/base.html' %} 
+{% block content %}
+<style>
+     .column {
+          float: left;
+          width: 50%;
+     }
+             
+     .row:after {
+          content: "";
+          display: table;
+          clear: both;
+     }
+
+     th, td {
+          border: 1px solid;
+          text-align: center;
+          vertical-align: bottom;
+        }
+
+     table{
+          width: 100%;
+          border: 1px solid;
+          border-collapse: collapsee
+     }
+</style>
+          <div class="row">
+               <div class="column">
+                    <a href="{% url 'setor.novo' %}">Adicionar Paciente</a>
+               </div>
+               <div class="column">
+               </div>
+          </div>
+
+          </br>
+          </br>
+
+          <table>
+               <thead>
+                    <tr>
+                         <th>Nome</th>
+                         <th>Sexo</th>
+                         <th>Data de Nascimento</th>
+                         <th>Município</th>
+                         <th>CEP</th>
+                         <th>Endereço</th>
+                         <th>Bairro</th>
+                         <th>Número</th>
+                         <th>Estado</th>
+                         <th>Nº SUS</th>
+                         <th>Documento</th>
+                         <th>Nº Documento</th>
+                         <th>Contato de Emergência</th>
+                         <th>Ações</th>
+                    </tr>
+                    <tbody>
+                         {% for setor in object_list %}
+                         <tr>
+                              <td>{{ paciente.nome_paciente }}</td>
+                              <td>{{ paciente.sexo_paciente }}</td>
+                              <td>{{ paciente.datanascimento_paciente }}</td>
+                              <td>{{ paciente.municipio_paciente }}</td>
+                              <td>{{ paciente.cep_paciente }}</td>
+                              <td>{{ paciente.endereco_paciente }}</td>
+                              <td>{{ paciente.bairro_paciente }}</td>
+                              <td>{{ paciente.numero_paciente }}</td>
+                              <td>{{ paciente.estado_paciente }}</td>
+                              <td>{{ paciente.cartaosus_paciente }}</td>
+                              <td>{{ paciente.documento_paciente }}</td>
+                              <td>{{ paciente.numerodocumento_paciente }}</td>
+                              <td>{{ paciente.contatoemergencia_paciente }}</td>
+     
+                              <td>
+                                   <a href="{% url 'paciente.remover' paciente.pk %}"><button type="button">Excluir</button></a>
+                              </td>
+                              <td>
+                                   <a href="{% url 'paciente.editar' paciente.pk %}"><button type="button">Editar</button></a>
+                              </td>
+                         </tr>
+                         {% endfor %}
+                    </tbody>
+               </thead>
+          </table>
+     </br>
+     </br>
+          
+{% endblock content%}

@@ -4,7 +4,7 @@
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-     <title>Listagem de Unidades</title>
+     <title>SIAH</title>
 </head>
 <body>
      <center>
@@ -16,6 +16,7 @@
           <li><a href="{% url 'home' %}"><h4>Home</h4></a></li>
           <li><a href="{% url 'unidade.index' %}"><h4>Acessar Unidade</h4></a></li>
           <li><a href="{% url 'setor.index' %}"><h4>Acessar Setores</h4></a></li>
+          <li><a href="{% url 'paciente.index' %}"><h4>Acessar Pacientes</h4></a></li>
           {% block content %}
           {% endblock content%}
      </ul>

@@ -11,6 +11,18 @@
      display: table;
      clear: both;
 }
+
+th, td {
+     border: 1px solid;
+     text-align: center;
+     vertical-align: middle;
+   }
+
+table{
+     width: 50%;
+     border: 1px solid;
+     border-collapse: collapsee
+}
 </style>
      <div class="row">
           <div class="column">
@@ -22,7 +34,7 @@
                <tr>
                     <th>Nome do Setor</th>
                     <th>Código do Setor</th>
-                    <th>Ações</th>
+                    <th colspan="2">Ações</th>
                </tr>
                <tbody>
                     {% for setor in object_list %}
@@ -30,10 +42,10 @@
                          <td>{{ setor.nome_setor }}</td>
                          <td>{{ setor.codigo_setor }}</td>
                          <td>
-                              <a href="{% url 'setor.remover' setor.pk %}">Remover</a>
+                              <a href="{% url 'setor.remover' setor.pk %}"><button type="button">Excluir</button></a>
                          </td>
                          <td>
-                              <a href="{% url 'setor.editar' setor.pk %}">Editar</a>
+                              <a href="{% url 'setor.editar' setor.pk %}"><button type="button">Editar</button></a>
                          </td>
                     </tr>
                     {% endfor %}

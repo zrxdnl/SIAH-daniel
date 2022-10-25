@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'unidade',
-    'setor'
+    'setor',
+    'paciente'
 ]
 
 MIDDLEWARE = [

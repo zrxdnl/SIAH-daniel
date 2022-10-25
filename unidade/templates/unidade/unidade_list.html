@@ -1,6 +1,19 @@
 {%extends 'main/base.html' %} 
 {% block content %}
-<a href="{% url 'unidade.novo' %}">Cadrastar Unidade</a>
+<style>
+     th, td {
+          border: 1px solid;
+          text-align: center;
+          vertical-align: middle;
+        }
+     
+     table{
+          width: 70%;
+          border: 1px solid;
+          border-collapse: collapsee
+     }
+</style>
+<a href="{% url 'unidade.novo' %}">Cadastrar Unidade</a>
 </br>
 </br>
 <table>
@@ -15,6 +28,7 @@
                <th>Número</th>
                <th>Estado</th>
                <th>CEP</th>
+               <th colspan="2">Ações</th>
           </tr>
           <tbody>
                {% for unidade in object_list %}
@@ -28,10 +42,10 @@
                     <td>{{ unidade.numero_unidade }}</td>
                     <td>{{ unidade.estado_unidade }}</td>
                     <td>{{ unidade.cep_unidade }}</td>
+                    <td>
+                         <a href="{% url 'unidade.remover' unidade.pk %}"><button type="button">Excluir</button></a>
+                    </td>
                </tr>
-               <td>
-                    <a href="{% url 'unidade.remover' unidade.pk %}">Remover</a>
-               </td>
                {% endfor %}
           </tbody>
      </thead>
