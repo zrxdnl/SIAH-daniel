@@ -3,8 +3,8 @@ from verificacao.validator import validate_no_digits, validate_digits, validate_
 
 class Unidade(models.Model):
      nome_unidade = models.CharField(max_length=256, validators=[validate_no_digits])
-     cnes = models.CharField(unique=True, max_length=7, validators=[validate_digits, validate_cnes])
-     cnpj = models.CharField(unique=True, max_length=14, validators=[validate_cnpj, validate_digits])
+     cnes = models.CharField(unique=True, error_messages={"unique":"CNES já cadastrado, insira outro."}, max_length=7, validators=[validate_digits, validate_cnes])
+     cnpj = models.CharField(unique=True, error_messages={"unique":"CNPJ já cadastrado, insira outro."}, max_length=14, validators=[validate_cnpj, validate_digits])
      orgaoEmissor_unidade = models.CharField(max_length=256, validators=[validate_no_digits])
      endereco_unidade = models.CharField(max_length=256)
      bairro_unidade = models.CharField(max_length=256)
