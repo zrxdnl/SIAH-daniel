@@ -3,6 +3,11 @@
 <style>
 .column {
      float: left;
+     width: 33%;
+}
+
+.column2 {
+     float: left;
      width: 50%;
 }
         
@@ -24,9 +29,20 @@ table{
      border-collapse: collapsee
 }
 </style>
+</br>
      <div class="row">
-          <div class="column">
-               <a href="{% url 'setor.novo' %}">Adicionar Setor</a>
+          <div class="column2">
+               <a href="{% url 'setor.novo' %}"><button type="button">Novo Setor</button></a>
+          </div>
+          <div class="column2">
+               <form method="GET">
+                    {% csrf_token %}
+                    <p>Buscar: </p>
+                    <input class="form-control" type="text" name="nome" required>
+                    <input type="submit" value="Buscar"></input>
+               </form>
+          </div>
+     </div>
      </br>
      </br>
      <table>
@@ -52,14 +68,5 @@ table{
                </tbody>
           </thead>
      </table>
-          </div>
-          <div class="column">
-               <form method="GET">
-                    {% csrf_token %}
-                    <p>Buscar: </p>
-                    <input class="form-control" type="text" name="nome" required>
-                    <input type="submit" value="Buscar"></input>
-               </form>
-          </div>
-     </div>
+     {{ user.time_vip }}
 {% endblock content%}
