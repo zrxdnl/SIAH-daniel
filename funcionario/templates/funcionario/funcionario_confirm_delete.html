@@ -1,0 +1,6 @@
+<form method="post">
+     {% csrf_token %}
+     <p>Deseja excluir "{{ object.Nome_Funcionario }}"?</p>
+     <input type="submit" value="Excluir">
+     <a href='/funcionario/'><button type="button">Voltar</button></a>
+ </form>

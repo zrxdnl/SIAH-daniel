@@ -10,8 +10,10 @@ class ListaPacienteView(ListView):
 
           filtro = self.request.GET.get('nome') or None
           if filtro:
-               queryset= queryset.filter(nome_paciente__contains=filtro)
-               
+               if filtro.isdigit():
+                    queryset= queryset.filter(cartao_sus_paciente__icontains=filtro)
+               else:
+                    queryset= queryset.filter(nome_paciente__contains=filtro)
           return queryset
 
 class PacienteCreateView(CreateView):

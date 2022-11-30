@@ -69,7 +69,7 @@ def validate_cnpj(value):
 
 def validate_sigla(value):
      if len(value) != 2:
-          raise ValidationError('Informe apenas a sigla')
+          raise ValidationError('Informe a sigla do estado')
      else:
           return value
 def validate_cpfrg(value):

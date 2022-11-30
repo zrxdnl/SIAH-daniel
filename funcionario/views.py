@@ -19,3 +19,7 @@ class FuncionarioCreateView(CreateView):
      model = Funcionario
      form_class = FuncionarioForm
      success_url = '/funcionario/'
+
+class FuncionarioDeleteView(DeleteView):
+     model = Funcionario
+     success_url = '/funcionario/'
