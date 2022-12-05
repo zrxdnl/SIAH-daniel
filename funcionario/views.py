@@ -11,11 +11,18 @@ class ListaFuncionarioView(ListView):
 
           filtro = self.request.GET.get('nome') or None
           if filtro:
-               queryset= queryset.filter(nome_Funcionario__contains=filtro)
-               
+               if filtro.isdigit():
+                    queryset= queryset.filter(CPF_Funcionario__icontains=filtro)
+               else:
+                    queryset= queryset.filter(Nome_Funcionario__contains=filtro)
           return queryset
 
 class FuncionarioCreateView(CreateView):
+     model = Funcionario
+     form_class = FuncionarioForm
+     success_url = '/funcionario/'
+
+class FuncionarioUpdateView(UpdateView):
      model = Funcionario
      form_class = FuncionarioForm
      success_url = '/funcionario/'

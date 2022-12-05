@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'unidade',
     'setor',
     'paciente',
-    'funcionario'
+    'funcionario',
+    'fichamedica'
 ]
 
 MIDDLEWARE = [

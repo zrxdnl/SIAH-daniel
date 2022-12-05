@@ -1,5 +1,4 @@
 {%extends 'main/base.html' %} 
-
 {% block content %}
 <style>
      .button-27 {
@@ -72,21 +71,15 @@
           border-collapse: collapsee
      }
 </style>
+
 </br>
 </br>
+
 <div class="row">
      <div class="column2">
-          </br>
-          </br>
-          <a href="{% url 'funcionario.novo' %}"><button type="button">Novo Funcionario</button></a>
+          <a href="{% url 'fichamedica.novo' %}"><button type="button">Novo Ficha Médica</button></a>
      </div>
      <div class="column2">
-          <form method="GET">
-               {% csrf_token %}
-               <p>Buscar: </p>
-               <input class="form-control" type="text" name="nome" required>
-               <input type="submit" value="Buscar"></input>
-          </form>
      </div>
 </div>
 
@@ -95,44 +88,28 @@
 <table>
      <thead>
           <tr>
-               <th>Nome</th>
-               <th>CPF</th>
-               <th>Data de Nascimento</th>
-               <th>Contato</th>
-               <th>Endereço</th>
-               <th>Bairro</th>
-               <th>Número</th>
-               <th>Complemento</th>
-               
+               <th>Número da Ficha Médica</th>
+               <th>Número do SUS do Paciente</th>
+               <th>Data e Hora Admissão</th>
+               <th>Localização Física</th>            
                <th colspan=2>Ações</th>
           <tbody>
-               {% for funcionario in object_list %}
+               {% for fichamedica in object_list %}
                <tr>
-                    <td>{{ funcionario.Nome_Funcionario }}</td>
-                    <td>{{ funcionario.CPF_Funcionario }}</td>
-                    <td>{{ funcionario.Data_Nascimento_Funcionario|date:"d/m/Y"}}</td>
-                    <td>{{ funcionario.Contato_Funcionario }}</td>
-                    <td>{{ funcionario.Endereco_Funcionario }}</td>
-                    <td>{{ funcionario.Bairro_Funcionario }}</td>
-                    <td>{{ funcionario.Numero_Funcionario }}</td>
-                    <td>{{ funcionario.Complemento_Funcionario }}</td>
-
+                    <td>{{ fichamedica.Numero_Ficha }}</td>
+                    <td>{{ fichamedica.Numero_SUS }}</td>
+                    <td>{{ fichamedica.Data_Hora_Admissao|date:"d/m/Y"}}</td>
+                    <td>{{ fichamedica.Localizacao_Fisica}}</td>
+                    {% endfor %}
                     <td>
-                         <a href="{%url 'funcionario.editar' funcionario.pk %}"><button type="button">Editar</button></a>
+                         Editar
                     </td>
                     <td>
-                         <a href="{%url 'funcionario.remover' funcionario.pk %}"><button type="button">Excluir</button></a>
+                         Excluir
                     </td>
-
-                    <!-- <td>{{ funcionario.documento_paciente }}</td>
-                    <td>{{ funcionario.numero_do_documento_paciente }}</td>  -->
-
-                    
                </tr>
-               {% endfor %}
+               
           </tbody>
      </thead>
 </table>
 {% endblock content%}
-     
-
