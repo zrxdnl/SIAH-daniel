@@ -27,6 +27,11 @@ class Paciente(models.Model):
      numero_do_documento_paciente = models.CharField(max_length = 11, unique = True, error_messages={"unique":"Número de documento já cadastrado, insira outro."}, validators = [validate_cpfrg, validate_digits])
      contato_emergencia_paciente = models.CharField(max_length=11, validators = [validate_digits, validate_contato])
 
+     def __str__(self):
+          return self.cartao_sus_paciente
+     
+     def getNome_paciente(self):
+          return self.nome_paciente
 
 
      

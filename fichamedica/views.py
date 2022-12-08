@@ -11,3 +11,7 @@ class FichamedicaCreateView(CreateView):
 class ListaFichamedicaView(ListView):
      model = Fichamedica 
      queryset = Fichamedica.objects.all().order_by('Numero_Ficha')
+
+class FichamedicaDeleteView(DeleteView):
+     model = Fichamedica
+     success_url = '/fichamedica/'

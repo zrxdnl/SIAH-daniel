@@ -96,4 +96,13 @@ def validate_cpf(value):
           raise ValidationError('O campo necessita 11 números') 
      else: 
           return value
-
+def validate_localizacao(value): 
+     if len(value) != 10: 
+          raise ValidationError('O campo necessita de 10 números') 
+     else: 
+          return value
+def validate_numeroficha(value):
+     if len(value) != 5: 
+          raise ValidationError('O campo necessita de 5 números') 
+     else: 
+          return value

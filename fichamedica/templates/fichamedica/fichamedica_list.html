@@ -90,7 +90,8 @@
           <tr>
                <th>Número da Ficha Médica</th>
                <th>Número do SUS do Paciente</th>
-               <th>Data e Hora Admissão</th>
+               <th>Data da Admissão</th>
+               <th>Hora da Admissão</th>
                <th>Localização Física</th>            
                <th colspan=2>Ações</th>
           <tbody>
@@ -98,15 +99,16 @@
                <tr>
                     <td>{{ fichamedica.Numero_Ficha }}</td>
                     <td>{{ fichamedica.Numero_SUS }}</td>
-                    <td>{{ fichamedica.Data_Hora_Admissao|date:"d/m/Y"}}</td>
+                    <td>{{ fichamedica.Data_Admissao|date:"d/m/Y"}}</td>
+                    <td>{{ fichamedica.Hora_Admissao|time:"H|i"}}</td>
                     <td>{{ fichamedica.Localizacao_Fisica}}</td>
-                    {% endfor %}
                     <td>
                          Editar
                     </td>
                     <td>
-                         Excluir
+                         <a href="{%url 'fichamedica.remover' fichamedica.pk %}"><button type="button">Excluir</button></a>
                     </td>
+                    {% endfor %}
                </tr>
                
           </tbody>
