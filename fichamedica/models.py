@@ -7,4 +7,4 @@ class Fichamedica(models.Model):
      Numero_SUS = models.ForeignKey(Paciente,null = False, on_delete=models.CASCADE)
      Data_Admissao = models.DateTimeField(validators=[validate_data])
      Hora_Admissao = models.TimeField()
-     Localizacao_Fisica = models.CharField(unique=True,max_length=10, error_messages={'unique':"Localização já cadastrada, insira outra"}, validators=[validate_localizacao])
+     Localizacao_Fisica = models.CharField(max_length=9, validators=[validate_localizacao])

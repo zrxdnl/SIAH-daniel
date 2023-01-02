@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from datetime import date 
+from django.utils import timezone
 import datetime
 
  # --- General Validators --- #
@@ -8,7 +9,7 @@ def validate_data(value):
      data_user = value
      data_server = datetime.datetime.today()
      if str(data_user) > str(data_server):
-          raise ValidationError('Data Inválida')
+          raise ValidationError('Data/Hora Inválida')
      else:
           return value 
 
@@ -97,8 +98,8 @@ def validate_cpf(value):
      else: 
           return value
 def validate_localizacao(value): 
-     if len(value) != 10: 
-          raise ValidationError('O campo necessita de 10 números') 
+     if len(value) > 9 or len(value) < 8: 
+          raise ValidationError('O campo necessita de 9 dígitos') 
      else: 
           return value
 def validate_numeroficha(value):
