@@ -15,3 +15,8 @@ class ListaFichamedicaView(ListView):
 class FichamedicaDeleteView(DeleteView):
      model = Fichamedica
      success_url = '/fichamedica/'
+
+class FichamedicaUpdateView(UpdateView):
+     model = Fichamedica
+     form_class = FichamedicaForm
+     success_url = '/fichamedica/'

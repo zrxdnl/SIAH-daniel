@@ -77,7 +77,7 @@
 
 <div class="row">
      <div class="column2">
-          <a href="{% url 'fichamedica.novo' %}"><button type="button">Novo Ficha Médica</button></a>
+          <a href="{% url 'prontuario.novo' %}"><button type="button">Novo Prontuario</button></a>
      </div>
      <div class="column2">
      </div>
@@ -88,25 +88,29 @@
 <table>
      <thead>
           <tr>
-               <th>Número da Ficha Médica</th>
+               <th>Número do Prontuário</th>
                <th>Número do SUS do Paciente</th>
+               <th>Código do Setor</th>
+               <th>Médico Responsável</th>
                <th>Data da Admissão</th>
                <th>Hora da Admissão</th>
                <th>Localização Física</th>            
                <th colspan=2>Ações</th>
           <tbody>
-               {% for fichamedica in object_list %}
+               {% for prontuario in object_list %}
                <tr>
-                    <td>{{ fichamedica.Numero_Ficha }}</td>
-                    <td>{{ fichamedica.Numero_SUS }}</td>
-                    <td>{{ fichamedica.Data_Admissao|date:"d/m/Y"}}</td>
-                    <td>{{ fichamedica.Hora_Admissao|time:"H|i"}}</td>
-                    <td>{{ fichamedica.Localizacao_Fisica}}</td>
+                    <td>{{ prontuario.Numero_Prontuario }}</td>
+                    <td>{{ prontuario.Numero_SUS }}</td>
+                    <td>{{ prontuario.Codigo_Setor }}</td>
+                    <td>{{ prontuario.Medico_Responsavel }}</td>
+                    <td>{{ prontuario.Data_Admissao|date:"d/m/Y"}}</td>
+                    <td>{{ prontuario.Hora_Admissao|time:"H|i"}}</td>
+                    <td>{{ prontuario.Localizacao_Fisica}}</td>
                     <td>
-                         <a href="{%url 'fichamedica.editar' fichamedica.pk %}"><button type="button">Editar</button></a>
+                         <a href="{%url 'prontuario.editar' prontuario.pk %}"><button type="button">Editar</button></a>
                     </td>
                     <td>
-                         <a href="{%url 'fichamedica.remover' fichamedica.pk %}"><button type="button">Excluir</button></a>
+                         <a href="{%url 'prontuario.remover' prontuario.pk %}"><button type="button">Excluir</button></a>
                     </td>
                     {% endfor %}
                </tr>

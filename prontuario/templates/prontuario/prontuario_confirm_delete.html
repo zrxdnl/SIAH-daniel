@@ -1,0 +1,6 @@
+<form method="post">
+     {% csrf_token %}
+     <p>Deseja excluir o prontuário "{{ object.Numero_Prontuario }}"?</p>
+     <input type="submit" value="Excluir">
+     <a href='/prontuario/'><button type="button">Voltar</button></a>
+ </form>
