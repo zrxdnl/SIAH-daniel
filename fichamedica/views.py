@@ -11,6 +11,13 @@ class FichamedicaCreateView(CreateView):
 class ListaFichamedicaView(ListView):
      model = Fichamedica 
      queryset = Fichamedica.objects.all().order_by('Numero_Ficha')
+     def get_queryset(self):
+               queryset = super().get_queryset()
+
+               filtro = self.request.GET.get('nome') or None
+               if filtro:
+                    queryset = queryset.filter(Numero_Ficha__icontains=filtro)
+               return queryset
 
 class FichamedicaDeleteView(DeleteView):
      model = Fichamedica

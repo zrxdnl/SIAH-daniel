@@ -80,6 +80,12 @@
           <a href="{% url 'fichamedica.novo' %}"><button type="button">Novo Ficha Médica</button></a>
      </div>
      <div class="column2">
+          <form method="GET">
+               {% csrf_token %}
+               <p>Buscar: </p>
+               <input class="form-control" type="text" name="nome" required>
+               <input type="submit" value="Buscar"></input>
+          </form>
      </div>
 </div>
 

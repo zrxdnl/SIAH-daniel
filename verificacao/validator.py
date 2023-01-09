@@ -2,17 +2,46 @@ from django.core.exceptions import ValidationError
 from datetime import date 
 from django.utils import timezone
 import datetime
-
+datahoje = False
  # --- General Validators --- #
 
 def validate_data(value):
+     global datahoje
      data_user = value
-     data_server = datetime.datetime.today()
+     data_server = datetime.datetime.today() 
+     s_str = '{}-{}-{}'.format(data_server.year, data_server.month, data_server.day)
+     print(s_str)
+     u_str = '{}-{}-{}'.format(data_user.year, data_user.month, data_user.day) 
+     print(u_str)
+     datahoje = (s_str==u_str)
      if str(data_user) > str(data_server):
-          raise ValidationError('Data/Hora Inválida')
+          raise ValidationError('Data Inválida')
      else:
-          return value 
+          return value
 
+def validate_hora(value): 
+     hora_user = value
+     print(hora_user)
+     u_hour = ' {}:{}'.format(hora_user.hour, hora_user.minute) 
+     print(u_hour) 
+     data_server = datetime.datetime.today()
+     s_hour =  ' {}:{}'.format(data_server.hour, data_server.minute)
+     print(s_hour) 
+     print(str(u_hour) > str(data_server)) 
+     u_h,u_m = u_hour.split(':')
+     print(u_h,u_m)
+     s_h,s_m = s_hour.split(':')
+     print(s_h,s_m) 
+     print(datahoje)
+     if datahoje == True:
+          if int(u_h) > int(s_h): 
+               raise ValidationError('Hora Inválida')
+          elif int(u_h) == int(s_h):
+               if int(u_m) > int(s_m):
+                    raise ValidationError('Hora Inválida')         
+     else: 
+          return value
+          
 def validate_digits(value): 
      if not str(value).isdigit(): 
           raise ValidationError('Este campo só aceita números') 
@@ -102,7 +131,7 @@ def validate_localizacao(value):
           raise ValidationError('O campo necessita de 9 dígitos') 
      else: 
           return value
-def validate_numeroficha(value):
+def validate_numerodocumento(value):
      if len(value) != 5: 
           raise ValidationError('O campo necessita de 5 números') 
      else: 
