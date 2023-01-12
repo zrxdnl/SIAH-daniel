@@ -80,6 +80,18 @@
           <a href="{% url 'prontuario.novo' %}"><button type="button">Novo Prontuario</button></a>
      </div>
      <div class="column2">
+          <form method="GET">
+               {% csrf_token %}
+               <p>Buscar: </p>
+               <input class="form-control" type="text" name="nome" required>
+               <input type="submit" value="Buscar"></input>
+               <input type="radio" id="CP" name="marca" value="CP" checked>
+               <label for="CP">Nº do Prontuário</label>
+               <input type="radio" id="CS" name="marca" value="CS">
+               <label for="CS">Cartão do SUS</label>
+               <input type="radio" id="NS" name="marca" value="NS">
+               <label for="NS">Setor</label>
+          </form> 
      </div>
 </div>
 

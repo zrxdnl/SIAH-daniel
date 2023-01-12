@@ -32,6 +32,8 @@ class Paciente(models.Model):
      
      def getNome_paciente(self):
           return self.nome_paciente
+     def getSUS(self):
+          return self.cartao_sus_paciente
 
 
      

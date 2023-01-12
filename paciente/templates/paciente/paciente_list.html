@@ -62,7 +62,7 @@
                          <th>Documento</th>
                          <th>Nº Documento</th>
                          <th>Contato de Emergência</th>
-                         <th colspan=2>Ações</th>
+                         <th colspan=4>Ações</th>
                     <tbody>
                          {% for paciente in object_list %}
                          <tr>
@@ -85,6 +85,12 @@
                               </td>
                               <td>
                                    <a href="{%url 'paciente.remover' paciente.pk %}"><button type="button">Excluir</button></a>
+                              </td>
+                              <td>
+                                   <form> <button type="submit" name="link" value={{ paciente.cartao_sus_paciente }}>Fichas</button> </form>
+                              </td>
+                              <td>
+                                   <form> <button type="submit" name="link2" value={{ paciente.cartao_sus_paciente }}>Prontuários</button> </form>
                               </td>
                          </tr>
                          {% endfor %}
