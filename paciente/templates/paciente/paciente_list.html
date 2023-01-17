@@ -59,12 +59,11 @@
                          <th>Número</th>
                          <th>Estado</th>
                          <th>Nº SUS</th>
-                         <th>Documento</th>
-                         <th>Nº Documento</th>
+                         <th>Nº CPF</th>
                          <th>Contato de Emergência</th>
                          <th colspan=4>Ações</th>
                     <tbody>
-                         {% for paciente in object_list %}
+                         {% for paciente in object_list %} 
                          <tr>
                               <td>{{ paciente.nome_paciente }}</td>
                               <td>{{ paciente.sexo_paciente }}</td>
@@ -76,7 +75,6 @@
                               <td>{{ paciente.numero_paciente }}</td>
                               <td>{{ paciente.estado_paciente }}</td>
                               <td>{{ paciente.cartao_sus_paciente }}</td>
-                              <td>{{ paciente.documento_paciente }}</td>
                               <td>{{ paciente.numero_do_documento_paciente }}</td>
                               <td>{{ paciente.contato_emergencia_paciente }}</td>
      
@@ -87,10 +85,10 @@
                                    <a href="{%url 'paciente.remover' paciente.pk %}"><button type="button">Excluir</button></a>
                               </td>
                               <td>
-                                   <form> <button type="submit" name="link" value={{ paciente.cartao_sus_paciente }}>Fichas</button> </form>
+                                   <form> <button type="submit" name="link" value={{ paciente.numero_do_documento_paciente }}>Fichas</button> </form>
                               </td>
                               <td>
-                                   <form> <button type="submit" name="link2" value={{ paciente.cartao_sus_paciente }}>Prontuários</button> </form>
+                                   <form> <button type="submit" name="link2" value={{ paciente.numero_do_documento_paciente }}>Prontuários</button> </form>
                               </td>
                          </tr>
                          {% endfor %}

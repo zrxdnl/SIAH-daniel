@@ -11,4 +11,4 @@ class PacienteForm(forms.ModelForm):
 
      class Meta:
           model = Paciente
-          fields = ['nome_paciente', 'sexo_paciente', 'data_nascimento_paciente', 'municipio_paciente', 'cep_paciente', 'endereco_paciente', 'bairro_paciente', 'numero_paciente', 'estado_paciente', 'cartao_sus_paciente', 'documento_paciente', 'numero_do_documento_paciente', 'contato_emergencia_paciente']
+          fields = ['nome_paciente', 'sexo_paciente', 'data_nascimento_paciente', 'municipio_paciente', 'cep_paciente', 'endereco_paciente', 'bairro_paciente', 'numero_paciente', 'estado_paciente', 'cartao_sus_paciente', 'numero_do_documento_paciente', 'contato_emergencia_paciente']

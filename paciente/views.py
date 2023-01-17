@@ -9,7 +9,7 @@ class ListaPacienteView(ListView):
      queryset = Paciente.objects.all().order_by('nome_paciente')
      
      def fichaPaciente(self, valor):
-          queryset = Fichamedica.filter(Numero_SUS__cartao_sus_paciente__icontains=valor)
+          queryset = Fichamedica.filter(Numero_CPF__numero_do_documento_paciente__icontains=valor)
           return queryset
 
      def get_queryset(self):
@@ -19,14 +19,14 @@ class ListaPacienteView(ListView):
           filtro3 = self.request.GET.get('link2') or None
 
           if filtro3:
-               queryset = Prontuario.objects.filter(Numero_SUS__cartao_sus_paciente__icontains=filtro3)
+               queryset = Prontuario.objects.filter(Numero_CPF__numero_do_documento_paciente__icontains=filtro3)
 
           if filtro2:
-               queryset = Fichamedica.objects.filter(Numero_SUS__cartao_sus_paciente__icontains=filtro2)
+               queryset = Fichamedica.objects.filter(Numero_CPF__numero_do_documento_paciente__icontains=filtro2)
          
           if filtro:
                if filtro.isdigit():
-                    queryset = queryset.filter(cartao_sus_paciente__icontains=filtro)
+                    queryset = queryset.filter(numero_do_documento_paciente__icontains=filtro)
                else:
                     queryset = queryset.filter(nome_paciente__contains=filtro)
           return queryset

@@ -87,8 +87,8 @@
                <input type="submit" value="Buscar"></input>
                <input type="radio" id="CF" name="marca" value="CF" checked>
                <label for="CF">Nº da Ficha</label>
-               <input type="radio" id="CS" name="marca" value="CS">
-               <label for="CS">Cartão do SUS</label>
+               <input type="radio" id="CPF" name="marca" value="CPF">
+               <label for="CPF">CPF</label>
           </form> 
      </div>
 </div>
@@ -99,7 +99,7 @@
      <thead>
           <tr>
                <th>Número da Ficha Médica</th>
-               <th>Número do SUS do Paciente</th>
+               <th>CPF do Paciente</th>
                <th>Data da Admissão</th>
                <th>Hora da Admissão</th>
                <th>Localização Física</th>            
@@ -108,7 +108,7 @@
                {% for fichamedica in object_list %}
                <tr>
                     <td>{{ fichamedica.Numero_Ficha }}</td>
-                    <td>{{ fichamedica.Numero_SUS }}</td>
+                    <td>{{ fichamedica.Numero_CPF }}</td>
                     <td>{{ fichamedica.Data_Admissao|date:"d/m/Y"}}</td>
                     <td>{{ fichamedica.Hora_Admissao|time:"H|i"}}</td>
                     <td>{{ fichamedica.Localizacao_Fisica}}</td>

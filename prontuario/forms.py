@@ -19,7 +19,7 @@ class ProntuarioForm(forms.ModelForm):
           model = Prontuario
           fields = [
                'Numero_Prontuario',
-               'Numero_SUS',
+               'Numero_CPF',
                'Codigo_Setor',
                'Medico_Responsavel',
                'Data_Admissao',

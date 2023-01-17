@@ -19,7 +19,7 @@ class FichamedicaForm(forms.ModelForm):
           model = Fichamedica
           fields = [
                'Numero_Ficha',
-               'Numero_SUS',
+               'Numero_CPF',
                'Data_Admissao',
                'Hora_Admissao',
                'Localizacao_Fisica'

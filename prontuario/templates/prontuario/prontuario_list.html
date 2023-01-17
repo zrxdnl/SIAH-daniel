@@ -87,8 +87,8 @@
                <input type="submit" value="Buscar"></input>
                <input type="radio" id="CP" name="marca" value="CP" checked>
                <label for="CP">Nº do Prontuário</label>
-               <input type="radio" id="CS" name="marca" value="CS">
-               <label for="CS">Cartão do SUS</label>
+               <input type="radio" id="CPF" name="marca" value="CPF">
+               <label for="CPF">CPF</label>
                <input type="radio" id="NS" name="marca" value="NS">
                <label for="NS">Setor</label>
           </form> 
@@ -101,7 +101,7 @@
      <thead>
           <tr>
                <th>Número do Prontuário</th>
-               <th>Número do SUS do Paciente</th>
+               <th>CPF do Paciente</th>
                <th>Código do Setor</th>
                <th>Médico Responsável</th>
                <th>Data da Admissão</th>
@@ -112,7 +112,7 @@
                {% for prontuario in object_list %}
                <tr>
                     <td>{{ prontuario.Numero_Prontuario }}</td>
-                    <td>{{ prontuario.Numero_SUS }}</td>
+                    <td>{{ prontuario.Numero_CPF }}</td>
                     <td>{{ prontuario.Codigo_Setor }}</td>
                     <td>{{ prontuario.Medico_Responsavel }}</td>
                     <td>{{ prontuario.Data_Admissao|date:"d/m/Y"}}</td>
