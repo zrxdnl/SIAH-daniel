@@ -102,6 +102,7 @@
                <th>CPF do Paciente</th>
                <th>Data da Admissão</th>
                <th>Hora da Admissão</th>
+               <th>Município</th>
                <th>Localização Física</th>            
                <th colspan=2>Ações</th>
           <tbody>
@@ -111,6 +112,7 @@
                     <td>{{ fichamedica.Numero_CPF }}</td>
                     <td>{{ fichamedica.Data_Admissao|date:"d/m/Y"}}</td>
                     <td>{{ fichamedica.Hora_Admissao|time:"H|i"}}</td>
+                    <td>{{ fichamedica.Municipio}}</td>
                     <td>{{ fichamedica.Localizacao_Fisica}}</td>
                     <td>
                          <a href="{%url 'fichamedica.editar' fichamedica.pk %}"><button type="button">Editar</button></a>

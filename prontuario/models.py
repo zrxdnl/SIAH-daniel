@@ -12,4 +12,10 @@ class Prontuario(models.Model):
      Data_Admissao = models.DateTimeField(validators=[validate_data])
      Hora_Admissao = models.TimeField(validators=[validate_hora])
      Localizacao_Fisica = models.CharField(max_length=9, validators=[validate_localizacao]) 
-     
+     def save(self,*args, **kwargs): 
+          data = str(self.Data_Admissao).split('-')
+          ano = data[0]
+          mes = data[1]
+          setor = str(self.Codigo_Setor)
+          self.Localizacao_Fisica = ano+mes+setor
+          super(Prontuario, self).save(*args,**kwargs)

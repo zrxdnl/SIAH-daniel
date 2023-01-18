@@ -21,18 +21,11 @@ def validate_data(value):
 
 def validate_hora(value): 
      hora_user = value
-     print(hora_user)
      u_hour = ' {}:{}'.format(hora_user.hour, hora_user.minute) 
-     print(u_hour) 
      data_server = datetime.datetime.today()
      s_hour =  ' {}:{}'.format(data_server.hour, data_server.minute)
-     print(s_hour) 
-     print(str(u_hour) > str(data_server)) 
      u_h,u_m = u_hour.split(':')
-     print(u_h,u_m)
      s_h,s_m = s_hour.split(':')
-     print(s_h,s_m) 
-     print(datahoje)
      if datahoje == True:
           if int(u_h) > int(s_h): 
                raise ValidationError('Hora Inválida')
@@ -47,6 +40,7 @@ def validate_digits(value):
           raise ValidationError('Este campo só aceita números') 
      else: 
           return value 
+     
 
 def validate_no_digits(value): 
      if any(n.isdigit() for n in value): 

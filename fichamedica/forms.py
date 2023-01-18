@@ -21,6 +21,5 @@ class FichamedicaForm(forms.ModelForm):
                'Numero_Ficha',
                'Numero_CPF',
                'Data_Admissao',
-               'Hora_Admissao',
-               'Localizacao_Fisica'
+               'Hora_Admissao'
           ]

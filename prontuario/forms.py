@@ -23,6 +23,5 @@ class ProntuarioForm(forms.ModelForm):
                'Codigo_Setor',
                'Medico_Responsavel',
                'Data_Admissao',
-               'Hora_Admissao',
-               'Localizacao_Fisica'
+               'Hora_Admissao'
           ]
