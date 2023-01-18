@@ -10,9 +10,8 @@ def validate_data(value):
      data_user = value
      data_server = datetime.datetime.today() 
      s_str = '{}-{}-{}'.format(data_server.year, data_server.month, data_server.day)
-     print(s_str)
      u_str = '{}-{}-{}'.format(data_user.year, data_user.month, data_user.day) 
-     print(u_str)
+
      datahoje = (s_str==u_str)
      if str(data_user) > str(data_server):
           raise ValidationError('Data Inválida')
