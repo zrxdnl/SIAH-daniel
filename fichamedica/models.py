@@ -10,7 +10,7 @@ class Fichamedica(models.Model):
      Municipio = models.CharField(max_length=30)
      Localizacao_Fisica = models.CharField(max_length=9, validators=[validate_localizacao])
      def save(self,*args, **kwargs):
-          self.Municipio = self.Numero_CPF.municipio_paciente
+          self.Municipio = self.Numero_CPF.Municipio_Paciente
           data = str(self.Data_Admissao).split('-')
           ano = data[0]
           mes = data[1]

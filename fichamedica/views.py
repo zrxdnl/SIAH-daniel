@@ -22,7 +22,7 @@ class ListaFichamedicaView(ListView):
                     if filtro2 == 'CF':
                          queryset = queryset.filter(Numero_Ficha__icontains=filtro)
                     else:
-                         queryset = queryset.filter(Numero_CPF__numero_do_documento_paciente__icontains=filtro)
+                         queryset = queryset.filter(Numero_CPF__cpf_paciente__icontains=filtro)
                return queryset
 
 class FichamedicaDeleteView(DeleteView):

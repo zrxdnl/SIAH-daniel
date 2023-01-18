@@ -22,7 +22,7 @@ class ListaProntuarioView(ListView):
                     elif filtro2 == 'NS':
                          queryset = queryset.filter(Codigo_Setor__codigo_setor__icontains=filtro)
                     else:
-                         queryset = queryset.filter(Numero_CPF__numero_do_documento_paciente__icontains=filtro)
+                         queryset = queryset.filter(Numero_CPF__cpf_paciente__icontains=filtro)
                return queryset
      
 class ProntuarioDeleteView(DeleteView):
